@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Generate differences between two files"
+authors = [
+    { name = "Your Name", email = "you@example.com" },
+]
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
+
+# Явно указываем структуру пакета
+[tool.hatch.build]
+include = [
+    "gendiff/",
+    "gendiff/scripts/",
+    "gendiff/scripts/gendiff.py",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["gendiff"]
